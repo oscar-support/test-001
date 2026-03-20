@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2048 Game</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        #game-board { display: grid; grid-template-columns: repeat(4, 100px); gap: 10px; margin: 20px auto; width: 440px; background: #bbada0; padding: 10px; border-radius: 5px; }
+        .cell { width: 100px; height: 100px; background: #cdc1b4; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>2048</h1>
+    <div id="game-board"></div>
+    <script>
+        const board = document.getElementById('game-board');
+        let grid = Array(16).fill(0);
+        function render() {
+            board.innerHTML = '';
+            grid.forEach(cell => {
+                const div = document.createElement('div');
+                div.className = 'cell';
+                div.innerText = cell > 0 ? cell : '';
+                board.appendChild(div);
+            });
+        }
+        grid[0] = 2; grid[1] = 2; render();
+    </script>
+</body>
+</html>
